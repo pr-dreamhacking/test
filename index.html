@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Политика безопасности контента. GitHub Pages не даёт задавать
+     HTTP-заголовки, поэтому единственный доступный способ — meta.
+
+     Главное здесь connect-src 'none': сайт не делает ни одного сетевого
+     запроса, и теперь это не обещание в документации, а запрет на уровне
+     браузера. Если однажды кто-то добавит аналитику или отправку ответов
+     на сервер — оно просто не заработает, и это правильно.
+
+     'unsafe-inline' в style-src нужен: React задаёт часть стилей
+     атрибутом style. Скрипты инлайном не подключаются нигде.
+
+     frame-ancestors в meta не работает по спецификации — только
+     заголовком. Защиты от встраивания в чужой iframe у статики на
+     GitHub Pages нет; для сайта, который ничего не собирает и никуда
+     не отправляет, это приемлемо. -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'none';
+  script-src 'self';
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data:;
+  font-src 'self';
+  connect-src 'none';
+  form-action 'none';
+  base-uri 'none';
+  object-src 'none';
+  manifest-src 'none'">
+
+<!-- На внешние ссылки уходит только домен, без пути и параметров -->
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<title>Что с вами происходило во сне? — короткий тест</title>
+<meta name="description" content="Осознанный сон, ложное пробуждение, сонный паралич или просто яркий сон? Ответьте на несколько вопросов.">
+
+<!-- Ссылку репостят в Telegram, превью должно быть читаемым -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Лаборатория сознания">
+<meta property="og:title" content="Что с вами происходило во сне?">
+<meta property="og:description" content="Осознанный сон, ложное пробуждение, сонный паралич или просто яркий сон? Короткий тест на пять вопросов.">
+<!-- og:image и og:url ОБЯЗАНЫ быть абсолютными: Telegram и другие
+     превьюшники не умеют достраивать относительный путь.
+     Меняется домен — правится ровно эта пара строк. -->
+<meta property="og:url" content="https://pr-dreamhacking.github.io/test/">
+<meta property="og:image" content="https://pr-dreamhacking.github.io/test/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Что с вами происходило во сне? Короткий тест. Лаборатория сознания.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B1020">
+<meta name="robots" content="index, follow">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<!-- Шрифты локальные. Грузим заранее только основной начертательный
+     файл: кириллический Golos Text, им набрано всё на экране -->
+<link rel="preload" href="fonts/golos-text-400-800-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="module" crossorigin src="./assets/index-B78UZgSA.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BwP6u0fM.css">
+</head>
+<body>
+<div id="root"></div>
+</body>
+</html>
